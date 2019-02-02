@@ -1,0 +1,30 @@
+Story:
+As a world traveler I want to be able to find information for a given country.
+
+
+Use case:
+  - I need a list of all continents on the planet
+  - When I select a continent I shall see all countries on that continent
+     // query with GraphQL
+     
+  - I want to be able to search through/filter the countries list by typing a name 
+      // How to make a search Filter https://dev.to/sage911/how-to-write-a-search-component-with-suggestions-in-react-d20
+
+  - When I select a country from the list I want to see some details about it; Minimal required data is: name, currency, spoken languages; The API returns more data which can (and is recommended) to be used;
+
+Objective:
+Create a simple React application handling the use case described above
+
+Resources:
+The required data shall be acquired from this API: https://countries.trevorblades.com/
+Any styling framework or other JS library found suitable can be used
+
+Requirements:
+React (obviously)
+ApolloClient must be used as a GraphQL client
+
+Notes:
+- follow best practices and good coding standards; the AirBNB eslint config is a good start
+- separation and understanding of functional vs design components is a plus
+- PropTypes validation is a big plus
+- tests are not required but a huge plus

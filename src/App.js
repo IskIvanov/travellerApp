@@ -1,27 +1,44 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+
+import Search from './components/Search';
+import Continents from './components/Continents'
+import ExchangeRates from './components/exchangeRate';
+
+import ApolloClient from "apollo-boost";
+import gql from 'graphql-tag';
+import { ApolloProvider } from "react-apollo";
+
 import './App.css';
+
+const client = new ApolloClient({
+  uri: "https://48p1r2roz4.sse.codesandbox.io"
+});
+
+client
+  .query({
+    query: gql`
+      {
+        rates(currency: "USD") {
+          currency
+        }
+      }
+    `
+  })
+  .then(result => console.log(result));
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
+      <ApolloProvider client={client}>
+         <h1> Travellers Info </h1>
+        <Search />
+        <Continents />
+        <div>
+           <h2>My first Apollo app 🚀</h2>
+           <ExchangeRates />
+        </div>
+      </ApolloProvider>
+      );
   }
 }
 
