@@ -4,7 +4,10 @@ As a world traveler I want to be able to find information for a given country.
 
 Use case:
   - I need a list of all continents on the planet
-  - When I select a continent I shall see all countries on that continent
+    // List all continents with GraphQL query - done
+    // Make a query component in Continents and fetch a query in it -done
+
+  - When I selecgit t a continent I shall see all countries on that continent
      // query with GraphQL
      
   - I want to be able to search through/filter the countries list by typing a name 

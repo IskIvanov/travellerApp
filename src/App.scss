@@ -1,0 +1,27 @@
+a {
+  :hover{
+    color: red;
+  }
+  p {
+    font-size: 25px;
+    font-family: 'Courier New', Courier, monospace;
+  }
+  color: #282c34;
+  text-decoration: none;
+  margin: 30px
+}
+
+.form-control {
+  font-size: 27px;
+  padding: 10px 140px;
+  border-radius: 20px;
+}
+
+.continents{
+  display: inline-flex;
+}
+
+.App {
+  text-align: center;
+}
+

@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+// import {SearchBar} from 'material-ui-search-bar';
+
 
 class Search extends Component {
  state = {
@@ -14,7 +16,8 @@ class Search extends Component {
  render() {
    return (
      <form>
-       <input
+     <input
+         className="form-control"
          placeholder="Search for..."
          ref={input => this.search = input}
          onChange={this.handleInputChange}
