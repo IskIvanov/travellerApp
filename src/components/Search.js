@@ -1,70 +1,68 @@
-// import React, { Component } from 'react'
-// import { withApollo } from 'react-apollo'
-// import gql from 'graphql-tag'
-// import Link from './Link'
+import React, { Component } from 'react';
+import { withApollo } from 'react-apollo';
+import gql from 'graphql-tag';
+import Countries from './Countries';
 
-// const EARCH_QUERY = gql`
-//   query FeedSearchQuery($filter: String!) {
-//     feed(filter: $filter) {
-//       links {
-//         id
-//         url
-//         description
-//         createdAt
-//         postedBy {
-//           id
-//           name
-//         }
-//         votes {
-//           id
-//           user {
-//             id
-//           }
-//         }
-//       }
-//     }
-//   }`;
+const SEARCH_QUERY = gql`
+{
+   countries{
+      code
+      name
+      native
+      emoji
+      currency
+        languages {
+          code
+          name
+        }
+  }
+  }
+}`;
 
 
-// class Search extends Component {
-  
-//   state = {
-//     countries: [],
-//     filter: ''
-//   }
+class Search extends Component {
 
-//   render() {
-//     return (
-//       <div>
-//         <div>
-//           Search
-//           <input
-//             type='text'
-//             onChange={e => this.setState({ filter: e.target.value })}
-//           />
-//           <button onClick={() => this._executeSearch()}>OK</button>
-//         </div>
+  state = {
+    countries: [],
+    filter: ''
+  }
 
-//         {this.state.links.map((link, index) => (
-//           <Link key={link.id} link={link} index={index} />
-//         ))}
+  render() {
+    return (
+      <div>
+        <div>
+          Search
+          
+          <input
+            type='text'
+            onChange={e => this.setState({ filter: e.target.value })}
+          />
 
-//       </div>
-//     )
-//   }
+          <button onClick={() => this._executeSearch()}>OK</button>
+        </div>
 
-//   _executeSearch = async () => {
-//     const { filter } = this.state
+        {this.state.countries.map((link, index) => (
+          <Countries key={link.id} link={link} index={index} />
+        ))}
+
+      </div>
+    )
+  }
+
+  _executeSearch = async () => {
+    console.log("OK was clicked");
     
-//     const result = await this.props.client.query({
-//       query: SEARCH_QUERY,
-//       variables: { filter },
-//     });
-
-//     const links = result.data.feed.links
+    const { filter } = this.state
     
-//     this.setState({ links })
-//   }
-// }
+    const result = await this.props.client.query({
+      query: SEARCH_QUERY,
+      variables: { filter },
+    });
 
-// export default withApollo(Search);
+    const countries = result.data.countries.name
+    
+    this.setState({ countries })
+  }
+}
+
+export default withApollo(Search);

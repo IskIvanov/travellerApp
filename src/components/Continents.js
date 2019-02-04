@@ -5,16 +5,16 @@ import Countries from './Countries';
 // import Countries from './Countries';
 
 const GET_CONTINENTS = gql`
-{
-  continents{
-    name
-    countries{
-      name
+  {
+    continents{
       code
-      emoji
+      name
     }
-  }
-}`;
+  }`;
+
+  const GET_COUNTRIES = gql`
+    
+  `
 
 export default class Continents extends Component {
   render() {
