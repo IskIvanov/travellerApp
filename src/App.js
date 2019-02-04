@@ -5,7 +5,7 @@ import Continents from './components/Continents'
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
 
-import './App.scss';
+import './sass/App.scss';
 
 const client = new ApolloClient({
   uri: "https://countries.trevorblades.com/"
@@ -16,7 +16,7 @@ class App extends Component {
     return (
       <ApolloProvider client={client}>
        <div className='App'>
-          <h1> Travellers Info 🚀 </h1>
+          <h1> Travellers Info <span>🚀</span> </h1>
           <Search />  
           <Continents />
         </div>

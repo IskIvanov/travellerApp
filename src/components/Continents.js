@@ -1,26 +1,23 @@
 import React, { Component } from 'react';
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
+import Countries from './Countries';
 // import Countries from './Countries';
 
 const GET_CONTINENTS = gql`
 {
   continents{
     name
-    code
     countries{
       name
+      code
+      emoji
     }
   }
-}
-`
+}`;
+
 export default class Continents extends Component {
   render() {
-
-    function handleClick(e) {
-      e.preventDefault();
-      console.log('The link was clicked.');
-    }
 
     return(
     <Query query={GET_CONTINENTS}>
@@ -28,13 +25,18 @@ export default class Continents extends Component {
       if (loading) return "Loading...";
       if (error) return `Error! ${error.message}`;
       
+      // const continents = data.continents;
+      // let countrie;
+      // continents.map((name, countries)=>{
+      //   countrie.push(countries);
+      // })
+      // console.log(countrie);
+
       return (
         <div className="continents">
-          {data.continents.map(continents => (
-            <a href="#" onClick={handleClick}>
-              <p><b>{continents.name}</b></p>
-           </a>
-          ))}
+            {/* {countries.map(name => (
+              <Countries key={name.id} name={name} />
+            ))} */}
         </div>
       );
     }}

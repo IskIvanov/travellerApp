@@ -9,9 +9,11 @@ Use case:
 
   - When I selecgit t a continent I shall see all countries on that continent
      // query with GraphQL
-     
+    // Can't make click event handler to open countries
+         
   - I want to be able to search through/filter the countries list by typing a name 
-      // How to make a search Filter https://dev.to/sage911/how-to-write-a-search-component-with-suggestions-in-react-d20
+      // How to make a search Filter - done
+      https://dev.to/sage911/how-to-write-a-search-component-with-suggestions-in-react-d20
 
   - When I select a country from the list I want to see some details about it; Minimal required data is: name, currency, spoken languages; The API returns more data which can (and is recommended) to be used;
 
