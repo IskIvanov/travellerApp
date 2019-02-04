@@ -19,7 +19,6 @@ const SEARCH_QUERY = gql`
   }
 }`;
 
-
 class Search extends Component {
 
   state = {
@@ -51,7 +50,7 @@ class Search extends Component {
 
   _executeSearch = async () => {
     console.log("OK was clicked");
-    
+
     const { filter } = this.state
     
     const result = await this.props.client.query({
